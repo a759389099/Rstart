@@ -18,7 +18,7 @@ public class BubbleSort {
  * @param sort 
  * @return
  */
-	private static int[] bubblesort(int[] sort) {
+	public static int[] bubblesort(int[] sort) {
 		// 冒泡排序法
 
 		for (int i = 0; i < sort.length - 1; i++) {
