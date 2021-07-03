@@ -1,4 +1,4 @@
-package com.shk.main;
+package com.shk.main.util;
 
 public class BubbleSort {
 /**
