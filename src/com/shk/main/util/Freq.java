@@ -8,10 +8,12 @@ import java.util.*;
 public class Freq {
 
     public static void main(String[] args) {
-        System.out.println(sortStr("tree"));
-        int[] nums = {-1, 0, 1, 2, -1, -4};
-        threeSum(nums).forEach(System.out::println);
-
+//        System.out.println(sortStr("tree"));
+//        int[] nums = {-1, 0, 1, 2, -1, -4};
+//        threeSum(nums).forEach(System.out::println);
+//        String[] strArr = {"flower", "flow", "flight"};
+        String[] strArr = {"c", "acc", "ccc"};
+        longestCommonPrefix(strArr);
     }
 
     public static String sortStr(String originStr) {
@@ -40,7 +42,7 @@ public class Freq {
     public static List<List<Integer>> threeSum(int[] nums) {
 
         HashSet<List<Integer>> resultset = new HashSet<>();
-        List<List<Integer>> resultList =new ArrayList<>(resultset);
+        List<List<Integer>> resultList = new ArrayList<>(resultset);
 
         int length = nums.length;
         if (length < 3) {
@@ -57,10 +59,7 @@ public class Freq {
                     nums[j + 1] = k;
                 }
             }
-
         }
-
-
         // 第一个指针
         for (int i = 0; i < length - 2; i++) {
             // 左指针
@@ -87,8 +86,49 @@ public class Freq {
                 }
             }
         }
-        resultList =new ArrayList<>(resultset);
+        resultList = new ArrayList<>(resultset);
 
         return resultList;
     }
+
+    /*
+    编写一个函数来查找字符串数组中的最长公共前缀。
+    如果不存在公共前缀，返回空字符串 ""。
+     */
+    public static String longestCommonPrefix(String[] strs) {
+        int minLength = -1;
+        String minStr = null;
+        if (strs.length == 1) {
+            return strs[0];
+        }
+
+        for (int i = 0; i < strs.length - 1; i++) {
+
+            for (int j = i; j < strs.length - 1; j++) {
+                if (strs[i].length() > strs[j + 1].length()) {
+                    String k = strs[i];
+                    strs[i] = strs[j + 1];
+                    strs[j + 1] = k;
+                }
+            }
+        }
+        minLength = strs[0].length();
+        minStr = strs[0];
+
+        String commonStr = "";
+        for (int i = 0; i < minLength; i++) {
+            int num = 0;
+            for (int j = 0; j < strs.length; j++) {
+                if (strs[j].substring(0, i + 1).equals(minStr.substring(0, i + 1))) {
+                    num++;
+                }
+            }
+            if (num == strs.length) {
+                //暂存这个公共前缀
+                commonStr = minStr.substring(0, i + 1);
+            }
+        }
+        return commonStr;
+    }
+
 }
