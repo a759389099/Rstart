@@ -9,11 +9,20 @@ public class Freq {
 
     public static void main(String[] args) {
 //        System.out.println(sortStr("tree"));
-//        int[] nums = {-1, 0, 1, 2, -1, -4};
+        int[] nums = {-1, 0, 1, 6, 3, -4};
 //        threeSum(nums).forEach(System.out::println);
 //        String[] strArr = {"flower", "flow", "flight"};
-        String[] strArr = {"c", "acc", "ccc"};
-        longestCommonPrefix(strArr);
+//        String[] strArr = {"c", "acc", "ccc"};
+//        longestCommonPrefix(strArr);
+
+       /* int[] ints = buildArray(nums);
+        for (int i = 0; i < ints.length; i++) {
+            System.out.println(ints[i]);
+        }*/
+
+        //System.out.println(lengthOfLastWord("Hello World"));
+//        removeElement();
+
     }
 
     public static String sortStr(String originStr) {
@@ -130,5 +139,70 @@ public class Freq {
         }
         return commonStr;
     }
+
+    /**
+     * 给你一个 从 0 开始的排列 nums（下标也从 0 开始）。请你构建一个 同样长度 的数组 ans ，其中，对于每个 i（0 <= i < nums.length），都满足 ans[i] = nums[nums[i]] 。返回构建好的数组 ans 。
+     * 从 0 开始的排列 nums 是一个由 0 到nums.length - 1（0 和 nums.length - 1 也包含在内）的不同整数组成的数组。
+     * 1 <= nums.length <= 1000
+     * 0 <= nums[i] < nums.length
+     * nums 中的元素 互不相同
+     */
+    public static int[] buildArray(int[] nums) {
+        nums = BubbleSort.bubblesort(nums);
+        int[] ans = new int[nums.length];
+
+
+        return ans;
+    }
+
+    /**
+     * 给你一个字符串 s，由若干单词组成，单词之间用空格隔开。返回字符串中最后一个单词的长度。如果不存在最后一个单词，请返回 0 。
+     * <p>
+     * 单词 是指仅由字母组成、不包含任何空格字符的最大子字符串。
+     */
+    public static int lengthOfLastWord(String s) {
+        String[] nums = s.split(" ");
+        if (nums.length < 1) {
+            return 0;
+        }
+        return nums[nums.length - 1].length();
+    }
+
+    /**
+     * 给你一个二元数组 nums ，和一个整数 goal ，请你统计并返回有多少个和为 goal 的 非空 子数组。
+     * <p>
+     * 子数组 是数组的一段连续部分。
+     */
+    public static int numSubarraysWithSum(int[] nums, int goal) {
+
+        /*示例 1：
+        输入：nums = [1,0,1,0,1], goal = 2
+        输出：4
+        解释：
+        有 4 个满足题目要求的子数组：[1,0,1]、[1,0,1,0]、[0,1,0,1]、[1,0,1]
+
+        示例 2：
+        输入：nums = [0,0,0,0,0], goal = 0
+        输出：15*/
+        // 长度从1-长度
+        // 遇事不决先排序
+        nums = BubbleSort.bubblesort(nums);
+        //
+
+        return 0;
+    }
+
+
+    /**
+     * 给你一个数组 nums和一个值 val，你需要 原地 移除所有数值等于val的元素，并返回移除后数组的新长度。
+     * 不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。
+     * 元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。
+     */
+    public static void removeElement(int val,int[] nums){
+
+
+
+    }
+
 
 }
